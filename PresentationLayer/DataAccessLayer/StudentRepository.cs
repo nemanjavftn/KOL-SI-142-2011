@@ -49,6 +49,8 @@ namespace DataAccessLayer
                     string.Format("INSERT INTO Students VALUES ('{0}', '{1}', {2})", 
                         s.Name, s.IndexNumber, s.AverageMark);
 
+                sqlConnection.Open();
+
                 return sqlCommand.ExecuteNonQuery();
             }
         }
