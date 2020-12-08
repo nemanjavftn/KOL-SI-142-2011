@@ -1,5 +1,6 @@
 ﻿using BusinessLayer;
-using DataAccessLayer.Models;
+using Shared.Interfaces.Business;
+using Shared.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,11 +12,14 @@ namespace PresentationLayerWeb
 {
     public partial class _Default : Page
     {
-        private StudentBusiness studentBusiness;
+        private IStudentBusiness studentBusiness;
+
+        public _Default(IStudentBusiness _studentBusiness)
+        {
+            this.studentBusiness = _studentBusiness;
+        }
         protected void Page_Load(object sender, EventArgs e)
         {
-            this.studentBusiness = new StudentBusiness();
-
             List<Student> students = this.studentBusiness.GetAllStudents();
             listBoxStudents.Items.Clear();
 

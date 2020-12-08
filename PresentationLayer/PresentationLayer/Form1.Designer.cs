@@ -36,6 +36,9 @@
             this.textBoxIndexNumber = new System.Windows.Forms.TextBox();
             this.textBoxAverageMark = new System.Windows.Forms.TextBox();
             this.buttonInsertStudent = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.textBoxEmail = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // listBoxStudents
@@ -51,9 +54,9 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(13, 438);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(27, 13);
+            this.label1.Size = new System.Drawing.Size(30, 13);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Ime:";
+            this.label1.Text = "Ime: ";
             // 
             // label2
             // 
@@ -76,9 +79,11 @@
             // textBoxName
             // 
             this.textBoxName.Location = new System.Drawing.Point(54, 435);
+            this.textBoxName.MaxLength = 100;
             this.textBoxName.Name = "textBoxName";
             this.textBoxName.Size = new System.Drawing.Size(163, 20);
             this.textBoxName.TabIndex = 4;
+            this.textBoxName.TextChanged += new System.EventHandler(this.textBoxName_TextChanged);
             // 
             // textBoxIndexNumber
             // 
@@ -86,6 +91,7 @@
             this.textBoxIndexNumber.Name = "textBoxIndexNumber";
             this.textBoxIndexNumber.Size = new System.Drawing.Size(179, 20);
             this.textBoxIndexNumber.TabIndex = 5;
+            this.textBoxIndexNumber.TextChanged += new System.EventHandler(this.textBoxIndexNumber_TextChanged);
             // 
             // textBoxAverageMark
             // 
@@ -93,6 +99,7 @@
             this.textBoxAverageMark.Name = "textBoxAverageMark";
             this.textBoxAverageMark.Size = new System.Drawing.Size(168, 20);
             this.textBoxAverageMark.TabIndex = 6;
+            this.textBoxAverageMark.TextChanged += new System.EventHandler(this.textBoxAverageMark_TextChanged);
             // 
             // buttonInsertStudent
             // 
@@ -104,11 +111,39 @@
             this.buttonInsertStudent.UseVisualStyleBackColor = true;
             this.buttonInsertStudent.Click += new System.EventHandler(this.buttonInsertStudent_Click);
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Red;
+            this.label4.Location = new System.Drawing.Point(314, 496);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(0, 13);
+            this.label4.TabIndex = 8;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(541, 496);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(35, 13);
+            this.label5.TabIndex = 9;
+            this.label5.Text = "Email:";
+            // 
+            // textBoxEmail
+            // 
+            this.textBoxEmail.Location = new System.Drawing.Point(600, 493);
+            this.textBoxEmail.Name = "textBoxEmail";
+            this.textBoxEmail.Size = new System.Drawing.Size(190, 20);
+            this.textBoxEmail.TabIndex = 10;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(999, 554);
+            this.Controls.Add(this.textBoxEmail);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.buttonInsertStudent);
             this.Controls.Add(this.textBoxAverageMark);
             this.Controls.Add(this.textBoxIndexNumber);
@@ -135,6 +170,9 @@
         private System.Windows.Forms.TextBox textBoxIndexNumber;
         private System.Windows.Forms.TextBox textBoxAverageMark;
         private System.Windows.Forms.Button buttonInsertStudent;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox textBoxEmail;
     }
 }
 
