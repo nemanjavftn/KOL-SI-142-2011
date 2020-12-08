@@ -1,5 +1,6 @@
 ﻿using BusinessLayer;
-using DataAccessLayer.Models;
+using Shared.Interfaces.Business;
+using Shared.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,10 +15,10 @@ namespace PresentationLayer
 {
     public partial class Form1 : Form
     {
-        private readonly StudentBusiness studentBusiness;
-        public Form1()
+        private readonly IStudentBusiness studentBusiness;
+        public Form1(IStudentBusiness _studentBusiness)
         {
-            this.studentBusiness = new StudentBusiness();
+            this.studentBusiness = _studentBusiness;
             InitializeComponent();
         }
 

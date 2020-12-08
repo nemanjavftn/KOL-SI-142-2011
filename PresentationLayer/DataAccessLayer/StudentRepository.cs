@@ -1,4 +1,5 @@
-﻿using DataAccessLayer.Models;
+﻿using Shared.Interfaces.Repository;
+using Shared.Models;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer
 {
-    public class StudentRepository
+    public class StudentRepository : IStudentRepository
     {
         public List<Student> GetAllStudents()
         {
@@ -24,7 +25,7 @@ namespace DataAccessLayer
 
                 SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
 
-                while(sqlDataReader.Read())
+                while (sqlDataReader.Read())
                 {
                     Student s = new Student();
                     s.Id = sqlDataReader.GetInt32(0);
@@ -41,12 +42,12 @@ namespace DataAccessLayer
 
         public int InsertStudent(Student s)
         {
-            using(SqlConnection sqlConnection = new SqlConnection(Constants.connectionString))
+            using (SqlConnection sqlConnection = new SqlConnection(Constants.connectionString))
             {
                 SqlCommand sqlCommand = new SqlCommand();
                 sqlCommand.Connection = sqlConnection;
-                sqlCommand.CommandText = 
-                    string.Format("INSERT INTO Students VALUES ('{0}', '{1}', {2})", 
+                sqlCommand.CommandText =
+                    string.Format("INSERT INTO Students VALUES ('{0}', '{1}', {2})",
                         s.Name, s.IndexNumber, s.AverageMark);
 
                 sqlConnection.Open();
