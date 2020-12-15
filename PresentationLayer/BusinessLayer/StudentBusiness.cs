@@ -38,5 +38,32 @@ namespace BusinessLayer
             return this.studentRepository.GetAllStudents()
                 .Where(s => s.AverageMark > averageMark).ToList();
         }
+
+        public bool CanTakeExam(Student student, string examName)
+        {
+            Faculty faculty = new Faculty();
+            return faculty.CanTakeExam(student, examName);
+        }
+
+        public List<Student> SortStudents(List<Student> list, string sortType)
+        {
+            StudentSortedList studentSortedList = new StudentSortedList();
+            studentSortedList.List = list;
+
+            switch (sortType)
+            {
+                case "name":
+                    studentSortedList.SetSortStrategy(new ByName());
+                    break;
+                case "indexNumber":
+                    studentSortedList.SetSortStrategy(new ByIndexNumber());
+                    break;
+                default:
+                    break;
+            }
+
+            studentSortedList.Sort();
+            return studentSortedList.List;
+        }
     }
 }

@@ -34,7 +34,7 @@ namespace PresentationLayer
 
         private static void ConfigureServices(ServiceCollection services)
         {
-            services.AddScoped<IStudentRepository, StudentRepository>();
+            services.AddSingleton<IStudentRepository, StudentRepository>();
             services.AddScoped<IStudentBusiness, StudentBusiness>();
             services.AddScoped<Form1>();
         }
